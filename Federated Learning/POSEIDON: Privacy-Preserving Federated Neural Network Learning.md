@@ -43,6 +43,45 @@ Raw 데이터나 Aggregate 데이터를 중앙 DB로 전송하는 방식
 
 Multiparty homomorphic encryption을 이용하여 training 데이터와 resulting 모델, querier's evaluation 데이터를 분산 세팅에서 End-to-End 프로텍션을 제공함 
 
+## System Model
+
+N 데이터 제공자가 NN 모델을 학습할 각자의 데이터를 locally 가지고 있음
+
+Querier 가 모델을 쿼리하고 evaluation data에서 예측 결과를 얻음
+
+Parties는 커뮤니케이션 효용성을 위해 tree-network 구조로 연결되어 있음
+
+## Treat Model
+
+N-1 파티까지 collusion을 가진 **Passive-adversar model**
+
+## Objective
+
+Data Confidentiality : 트레이닝과 예측 도중에 어떤 party도 다른 honest party의 인풋 데이터에 대한 정보 이상을 학습할 수 없음
+
+Model Confidentiality : 트레이닝과 예측 도중에 어떤 party도 학습 모델 이상의 정보를 가질 수 없음
+
+## Soluation
+
+**Multipary Homomorphic Encryption (MHE)** and **Federated Learning (FL)**
+
+Local data는 데이터 제공자 premise에 항상 보관 됨
+
+NN model의 weight는 항상 training과 evaluation도중에 암호화된 채로 보관 됨
+
+### MHE
+
+- **Public collective key** 는 모든 party가 알고 있음
+- 이에 대한 **Scret key** 는 party들에게 분배되어 있음
+- **Decryption** 은 파티들간의 collaboration을 요구함 
+- 암호문을 리프레쉬하기 위한 효율적인 **Collaborative bootstrapping** 이 가능함
+
+### FL
+
+- 각 데이터 제공자들은 local iteration을 수행하고 각 레이어의 partial gradient를 계산함
+- 이 gradient는 모든 파티에게 aggregated 됨
+- 한 party는 average gradient를 이용하여 모델을 update함 
+
 # 참고자료
 
 [Youtube](https://www.youtube.com/watch?v=kX6-PMzxZ3c)
