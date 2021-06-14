@@ -82,6 +82,25 @@ NN model의 weight는 항상 training과 evaluation도중에 암호화된 채로
 - 이 gradient는 모든 파티에게 aggregated 됨
 - 한 party는 average gradient를 이용하여 모델을 update함 
 
+# Implementation
+
+**Lattigo, lattice-based library**를 이용하여 MHE operation 을 구현함
+
+**Onet**을 이용하여 secure channel을 가진 TCP 상에서 party들이 communicate하는 decentralized system을 구현하였음 
+
+**Mininet**를 가상 네트워크 구현을 위해 사용하였음
+
+
+# Conclusion
+
+MHE를 이용하여 데이터를 보지 않고 계산하는 것이 가능하며 decentralized trust에 의존하며 데이터를 전송할 필요가 없음
+
+또한 모델은 항상 encrypted 되어있고 partial gradient에 추가적인 노이즈를 줄 필요가 없음
+
+실험 결과 정확도가 non-secure distributed solution과 유사하였으며 scalability 분석에서 컴퓨팅/커뮤니케이팅 오버헤드를 평가하였음
+
+평가 결과 party수에 따라 linear하게 증가하였으며 각 레이어에서 neuron의 수나 feature의 수에 따라 logarithmically 증가하는 것을 확인 함
+
 # 참고자료
 
 [Youtube](https://www.youtube.com/watch?v=kX6-PMzxZ3c)
