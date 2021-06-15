@@ -14,6 +14,15 @@ FL server와 client 사이에 Mediator 두고 이를 통해 Training 과정을 r
 
 이런 전체적인 프레임워크를 **Astraea**라고 명함
 
+# Astraea
+
+## Z-score
+
+Data augmentation과 downsampling에서 **rebalancing**을 위해 사용
+
+## Kullback-Leibler divergence
+
+Mediator가 Multi-client의 **rescheduling**을 위해 사용
 
 # IMHO
 
