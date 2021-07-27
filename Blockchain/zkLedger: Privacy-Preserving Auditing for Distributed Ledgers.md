@@ -62,9 +62,32 @@ zkLedger는 다음과 같은 것을 계산 가능함
 
 예시로 Pedersen Commitments가 가능
 
-&&
-comm(v) = g^vh^r
-&&
+comm(v) = g^v * h^r
+
+- Binding : 값을 알기가 힘듦
+- Homomorphically combined : 암호화 된 값 끼리 계산이 가능
+- Fast
+
+이 방식을 이용하여, value를 가린 채 audit할 경우
+
+malicious한 은행의 경우 데이터를 빼먹고 알려주었을 때 검증할 방법이 없음
+
+그래서 zkLedger는 모든 은행이 모든 transaction의 entry에 속하도록 함
+
+Depositor transaction은 항상 public하게 처리가 됨
+
+Bank transaction일 경우에는 spender column은 negative value가, receiver column에는 positive value가 기록되게 함
+
+commitment 값만 보고는 zero value와 non-zero value들 구별하는 것이 불가능함
+
+이를 통해 zkLedger는 모든 transaction을 audit하게 됨
+
+## Non-interactive zero-knowledge proofs (NIZKs)
+
+- Consent NIZK
+- Asset NIZK
+- Balance NIZK
+- Consistency NIZK
 
 
 # IMHO
