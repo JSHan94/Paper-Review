@@ -14,6 +14,15 @@ MIT 미디어랩에서 발표
 
 정보를 암호화한 채 audit하는 기술이 필요함.
 
+크게 두 가지 방법이 기존에 존재하였는데 각각은 다음과 같은 문제가 있었음
+
+- 신뢰할 수 있는 제3자 독립적으로 검증함 : 참여자들이 프라이빗 트랜잭션을 검증하지 못해서 분산장부의 이점이 없음
+- 암호학적 commitment scheme을 사용하여 트랜잭션의 정보를 숨김 : 트랜잭션 그래프가 노출되거나, trusted setup이 필요하거나, 손상될 경우 공격을 탐지 
+
+zkLedger는 트랜잭션간의 연결을 보여주지 않아 트랜잭션 그래프를 확인 할 수 없고
+
+공격자들은 누가 트랜잭션에 포함되어 있고 얼마만큼의 금액이 이동하는 지 알 수 없음
+
 # zkLedger
 
 A Privatem, auditable transaction ledger
@@ -99,6 +108,11 @@ commitment 값만 보고는 zero value와 non-zero value들 구별하는 것이 
 
 
 # 참고 자료
+
+기타 조사 필요 사항
+- Solidus - PVORM (Publicly-Verifiable Oblivious RAM Machine)을 이용한 confidential distributed ledger
+- Commitment scheme
+
 
 [발표영상](https://www.usenix.org/conference/nsdi18/presentation/narula)
 [논문](https://www.usenix.org/system/files/conference/nsdi18/nsdi18-narula.pdf)
